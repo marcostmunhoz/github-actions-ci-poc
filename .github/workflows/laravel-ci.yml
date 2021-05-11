@@ -5,14 +5,14 @@ jobs:
   laravel:
     name: Laravel (PHP ${{ matrix.php-versions }})
     runs-on: ubuntu-latest
+    DB_USERNAME: root
+    DB_PASSWORD: null
     services:
       mysql:
         image: mysql:5.7
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: false
           MYSQL_DATABASE: github_actions_ci_poc
-          MYSQL_USERNAME: sail
-          MYSQL_PASSWORD: password
         ports:
           - 3306/tcp
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
