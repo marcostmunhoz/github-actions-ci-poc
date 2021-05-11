@@ -5,8 +5,9 @@ jobs:
   laravel:
     name: Laravel (PHP ${{ matrix.php-versions }})
     runs-on: ubuntu-latest
-    DB_USERNAME: root
-    DB_PASSWORD: null
+    env:
+      DB_USERNAME: root
+      DB_PASSWORD: null
     services:
       mysql:
         image: mysql:5.7
